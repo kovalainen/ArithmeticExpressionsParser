@@ -1,0 +1,9 @@
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\bin\Debug\netcoreapp3.1\ArithmeticExpressionsParser.deps.json
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\bin\Debug\netcoreapp3.1\ArithmeticExpressionsParser.dll
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\bin\Debug\netcoreapp3.1\ArithmeticExpressionsParser.pdb
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.csprojAssemblyReference.cache
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.AssemblyInfoInputs.cache
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.AssemblyInfo.cs
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.csproj.CoreCompileInputs.cache
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.dll
+C:\Users\KovalevskyiBI\source\repos\ArithmeticExpressionsParser\ArithmeticExpressionsParser\obj\Debug\netcoreapp3.1\ArithmeticExpressionsParser.pdb
