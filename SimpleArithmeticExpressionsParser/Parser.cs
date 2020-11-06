@@ -190,10 +190,10 @@ namespace SimpleArithmeticExpressionsParser
             {
                 while (expression.Contains(function.Item1))
                 {
-                    int indexOfCos = expression.IndexOf(function.Item1, StringComparison.Ordinal);
-                    int to = SkipBrackets(indexOfCos + function.Item1.Length, expression);
+                    int index = expression.IndexOf(function.Item1, StringComparison.Ordinal);
+                    int to = SkipBrackets(index + function.Item1.Length, expression);
                     string withoutFunc = expression
-                        .Substring(indexOfCos + function.Item1.Length, to - indexOfCos - function.Item1.Length);
+                        .Substring(index + function.Item1.Length, to - index - function.Item1.Length);
                     parser.Expression = withoutFunc;
                     double result = function.Item2(parser.CalculateResult());
                     expression = expression.Replace(function.Item1 + withoutFunc, result.ToString());

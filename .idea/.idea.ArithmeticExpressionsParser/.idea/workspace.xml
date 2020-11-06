@@ -4,15 +4,21 @@
     <projectFile>Test/Test.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ed41ec7-b1e0-49c6-8ec9-5833400b317e" name="Default Changelist" comment="" />
+    <list default="true" id="8ed41ec7-b1e0-49c6-8ec9-5833400b317e" name="Default Changelist" comment="init">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ArithmeticExpressionsParser/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ArithmeticExpressionsParser/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Operation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SimpleArithmeticExpressionsParser/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Parser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/38/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/A8/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
@@ -25,12 +31,13 @@
         <option value="$PROJECT_DIR$/ArithmeticExpressionsParser/Parser.cs" />
         <option value="$PROJECT_DIR$/SimpleArithmeticExpressionsParser/SimpleArithmeticExpressionsParser.csproj" />
         <option value="$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Node.cs" />
-        <option value="$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Parser.cs" />
         <option value="$PROJECT_DIR$/Test/Program.cs" />
+        <option value="$PROJECT_DIR$/SimpleArithmeticExpressionsParser/Parser.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1jmnHnNmr5zHH545TjgJAWGPS7x" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -82,8 +89,16 @@
       <updated>1604418049527</updated>
       <workItem from="1604418062621" duration="1135000" />
       <workItem from="1604473691943" duration="19385000" />
-      <workItem from="1604647794268" duration="15236000" />
+      <workItem from="1604647794268" duration="19198000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1604667282599</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604667282599</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,11 +106,23 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="2704" y="205" key="Github.CreateGistDialog" timestamp="1604666708094">
       <screen x="1920" y="-221" width="1920" height="1050" />
     </state>
     <state x="2704" y="205" key="Github.CreateGistDialog/0.0.1920.1050/1920.-221.1920.1050@1920.-221.1920.1050" timestamp="1604666708094" />
+    <state x="2711" y="201" key="Github.ShareDialog" timestamp="1604667520016">
+      <screen x="1920" y="-221" width="1920" height="1050" />
+    </state>
+    <state x="2711" y="201" key="Github.ShareDialog/0.0.1920.1050/1920.-221.1920.1050@1920.-221.1920.1050" timestamp="1604667520016" />
+    <state x="2605" y="9" key="Github.UntrackedFilesDialog" timestamp="1604667141499">
+      <screen x="1920" y="-221" width="1920" height="1050" />
+    </state>
+    <state x="2605" y="9" key="Github.UntrackedFilesDialog/0.0.1920.1050/1920.-221.1920.1050@1920.-221.1920.1050" timestamp="1604667141499" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1604666553851">
       <screen x="1920" y="-221" width="1920" height="1050" />
     </state>
