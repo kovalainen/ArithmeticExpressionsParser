@@ -80,7 +80,9 @@ namespace SimpleArithmeticExpressionsParser
 
         private Node BuildTree(string expression)
         {
-            while (expression[0] == '(' && expression[^1] == ')')
+            while (expression[0] == '(' && expression[^1] == ')' 
+                                        && expression.Length - 2 > 0
+                                        && CheckBrackets(expression.Substring(1, expression.Length - 2)))
             {
                 expression = expression.Remove(expression.Length - 1, 1).Remove(0, 1);
             }
