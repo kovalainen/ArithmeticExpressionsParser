@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using SimpleArithmeticExpressionsParser.OperationHandlers;
 
 namespace SimpleArithmeticExpressionsParser
 {
@@ -12,15 +10,8 @@ namespace SimpleArithmeticExpressionsParser
         private Node _root;
 
         private readonly List<IOperationHandler> _operationHandlers = HandlersFactory<IOperationHandler>.GetHandlers();
-
-        private static readonly List<Tuple<string, Func<double, double>>> FunctionsWithOneArgument =
-            new List<Tuple<string, Func<double, double>>>
-            {
-                new Tuple<string, Func<double, double>>(nameof(Math.Cos).ToLower(), Math.Cos),
-                new Tuple<string, Func<double, double>>(nameof(Math.Sin).ToLower(), Math.Sin),
-                new Tuple<string, Func<double, double>>(nameof(Math.Abs).ToLower(), Math.Abs),
-                new Tuple<string, Func<double, double>>(nameof(Math.Sqrt).ToLower(), Math.Sqrt),
-            };
+        
+        private readonly List<IFunctionHandler> _functionHandlers = HandlersFactory<IFunctionHandler>.GetHandlers();
 
         private static readonly Dictionary<int, Predicate<char>> OperationPriorityDictionary = 
             new Dictionary<int, Predicate<char>>
@@ -63,7 +54,8 @@ namespace SimpleArithmeticExpressionsParser
             }
 
             _expression = expression.Replace(" ", "").ToLower();
-            _expression = HandleFunctions(_expression);
+            _expression = _functionHandlers
+                .Aggregate(expression, (current, functionHandler) => functionHandler.Handle(current));
             _root = BuildTree(_expression);
         }
 
@@ -168,27 +160,6 @@ namespace SimpleArithmeticExpressionsParser
             }
 
             return _root.Value;
-        }
-
-        private string HandleFunctions(string expression)
-        {
-            var parser = new Parser();
-
-            foreach (var function in FunctionsWithOneArgument)
-            {
-                while (expression.Contains(function.Item1))
-                {
-                    var index = expression.IndexOf(function.Item1, StringComparison.Ordinal);
-                    var to = BracketsHelper.SkipBrackets(index + function.Item1.Length, expression);
-                    var withoutFunc = expression
-                        .Substring(index + function.Item1.Length, to - index - function.Item1.Length);
-                    parser.Expression = withoutFunc;
-                    var result = function.Item2(parser.CalculateResult());
-                    expression = expression.Replace(function.Item1 + withoutFunc, result.ToString());
-                }
-            }
-
-            return expression;
         }
     }
 }
