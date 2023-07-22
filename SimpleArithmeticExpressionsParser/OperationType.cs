@@ -1,6 +1,6 @@
 ﻿namespace SimpleArithmeticExpressionsParser
 {
-    internal enum Operation
+    public enum OperationType
     {
         Num,
         Add,
