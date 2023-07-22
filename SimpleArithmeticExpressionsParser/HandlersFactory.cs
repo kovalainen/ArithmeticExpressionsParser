@@ -22,7 +22,7 @@ namespace SimpleArithmeticExpressionsParser
 
             var implementationTypes = implementationAssembly
                 .GetTypes()
-                .Where(x => x.GetInterfaces().Contains(operationHandlerType))
+                .Where(x => x.GetInterfaces().Contains(operationHandlerType) && !x.IsAbstract)
                 .ToArray();
 
             var result = implementationTypes
