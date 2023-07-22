@@ -36,7 +36,7 @@ namespace SimpleArithmeticExpressionsParser
             set => Init(value);
         }
 
-        private Parser()
+        public Parser()
         {
             _expression = "";
         }
