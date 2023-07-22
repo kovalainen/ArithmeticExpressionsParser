@@ -150,11 +150,11 @@ namespace SimpleArithmeticExpressionsParser
                 {
                     if (node.Right?.OperationType != OperationType.Num)
                     {
-                        stack.Push(node.Right);
+                        stack.Push(node.Right as Node);
                     }
                     if (node.Left?.OperationType != OperationType.Num)
                     {
-                        stack.Push(node.Left);
+                        stack.Push(node.Left as Node);
                     }
                 }
             }

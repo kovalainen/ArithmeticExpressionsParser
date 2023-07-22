@@ -6,8 +6,8 @@
         
         public OperationType OperationType { get;  }
         
-        public Node Left { get; }
+        public ITreeNode Left { get; }
         
-        public Node Right { get; }
+        public ITreeNode Right { get; }
     }
 }
