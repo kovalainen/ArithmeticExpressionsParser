@@ -11,9 +11,9 @@ namespace SimpleArithmeticExpressionsParser
         private string _expression;
         private Node _root;
 
-        private readonly List<IOperationHandler> _operationHandlers = OperationHandlersFactory.CreateHandlers();
+        private readonly List<IOperationHandler> _operationHandlers = HandlersFactory<IOperationHandler>.GetHandlers();
 
-        private readonly List<Tuple<string, Func<double, double>>> _functionsWithOneArgument =
+        private static readonly List<Tuple<string, Func<double, double>>> FunctionsWithOneArgument =
             new List<Tuple<string, Func<double, double>>>
             {
                 new Tuple<string, Func<double, double>>(nameof(Math.Cos).ToLower(), Math.Cos),
@@ -22,7 +22,7 @@ namespace SimpleArithmeticExpressionsParser
                 new Tuple<string, Func<double, double>>(nameof(Math.Sqrt).ToLower(), Math.Sqrt),
             };
 
-        private readonly Dictionary<int, Predicate<char>> _operationPriorityDictionary = 
+        private static readonly Dictionary<int, Predicate<char>> OperationPriorityDictionary = 
             new Dictionary<int, Predicate<char>>
             {
                 {0, c => c == '-' || c == '+'},
@@ -110,7 +110,7 @@ namespace SimpleArithmeticExpressionsParser
         {
             var result = -1;
 
-            for (var j = 0; j < _operationPriorityDictionary.Count; j++)
+            for (var j = 0; j < OperationPriorityDictionary.Count; j++)
             {
                 for (var i = 0; i < expression.Length; i++)
                 {
@@ -119,7 +119,7 @@ namespace SimpleArithmeticExpressionsParser
                         i = BracketsHelper.SkipBrackets(i, expression);
                     }
                     if (i < expression.Length && i != 0 && (char.IsDigit(expression[i - 1]) || expression[i - 1] == ')')
-                        && _operationPriorityDictionary[j](expression[i]))
+                        && OperationPriorityDictionary[j](expression[i]))
                     {
                         result = i;
                     }
@@ -170,13 +170,11 @@ namespace SimpleArithmeticExpressionsParser
             return _root.Value;
         }
 
-        
-
         private string HandleFunctions(string expression)
         {
             var parser = new Parser();
 
-            foreach (var function in _functionsWithOneArgument)
+            foreach (var function in FunctionsWithOneArgument)
             {
                 while (expression.Contains(function.Item1))
                 {
