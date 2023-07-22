@@ -11,16 +11,8 @@ namespace SimpleArithmeticExpressionsParser
         private string _expression;
         private Node _root;
 
-        private readonly List<IOperationHandler> _operationHandlers = new List<IOperationHandler>
-        {
-            new AddOperationHandler(),
-            new DivOperationHandler(),
-            new MulOperationHandler(),
-            new NumOperationHandler(),
-            new PowOperationHandler(),
-            new SubOperationHandler(),
-        };
-        
+        private readonly List<IOperationHandler> _operationHandlers = OperationHandlersFactory.CreateHandlers();
+
         private readonly List<Tuple<string, Func<double, double>>> _functionsWithOneArgument =
             new List<Tuple<string, Func<double, double>>>
             {

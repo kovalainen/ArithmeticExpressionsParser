@@ -13,7 +13,7 @@ namespace Test
                 var expression = "(ABS(SIN(2521 * 24)) * 2 / COS(214 * (124 - (-52)) / 2 * (6 + 4)) + COS(0)) / 2";
                 var parser = new Parser(expression);
                 var result = parser.CalculateResult();
-
+                
                 Console.WriteLine(result);
             }
             catch (Exception ex)
