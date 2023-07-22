@@ -55,7 +55,7 @@ namespace SimpleArithmeticExpressionsParser
 
             _expression = expression.Replace(" ", "").ToLower();
             _expression = _functionHandlers
-                .Aggregate(expression, (current, functionHandler) => functionHandler.Handle(current));
+                .Aggregate(_expression, (current, functionHandler) => functionHandler.Handle(current));
             _root = BuildTree(_expression);
         }
 
