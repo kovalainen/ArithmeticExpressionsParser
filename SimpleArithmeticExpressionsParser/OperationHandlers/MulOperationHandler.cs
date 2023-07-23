@@ -1,17 +1,9 @@
 ﻿namespace SimpleArithmeticExpressionsParser.OperationHandlers
 {
-    public class MulOperationHandler : IOperationHandler
+    public class MulOperationHandler : OperationHandlerBase
     {
-        public OperationType OperationType => OperationType.Mul;
+        protected override OperationType OperationType => OperationType.Mul;
         
-        public double Handle(ITreeNode node)
-        {
-            if (node.OperationType == OperationType)
-            {
-                return node.Right.Value * node.Left.Value;
-            }
-
-            return node.Value;
-        }
+        protected override double ApplyOperation(ITreeNode node) => node.Right.Value * node.Left.Value;
     }
 }

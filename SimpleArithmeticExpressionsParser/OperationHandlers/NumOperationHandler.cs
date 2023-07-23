@@ -1,12 +1,9 @@
 ﻿namespace SimpleArithmeticExpressionsParser.OperationHandlers
 {
-    public class NumOperationHandler : IOperationHandler
+    public class NumOperationHandler : OperationHandlerBase
     {
-        public OperationType OperationType => OperationType.Num;
+        protected override OperationType OperationType => OperationType.Num;
         
-        public double Handle(ITreeNode node)
-        {
-            return node.Value;
-        }
+        protected override double ApplyOperation(ITreeNode node) => node.Value;
     }
 }

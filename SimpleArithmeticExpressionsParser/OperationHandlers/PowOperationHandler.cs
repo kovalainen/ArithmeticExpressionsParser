@@ -2,18 +2,10 @@
 
 namespace SimpleArithmeticExpressionsParser.OperationHandlers
 {
-    public class PowOperationHandler : IOperationHandler
+    public class PowOperationHandler : OperationHandlerBase
     {
-        public OperationType OperationType => OperationType.Pow;
+        protected override OperationType OperationType => OperationType.Pow;
         
-        public double Handle(ITreeNode node)
-        {
-            if (node.OperationType == OperationType)
-            {
-                return Math.Pow(node.Left.Value, node.Right.Value);
-            }
-
-            return node.Value;
-        }
+        protected override double ApplyOperation(ITreeNode node) => Math.Pow(node.Left.Value, node.Right.Value);
     }
 }
