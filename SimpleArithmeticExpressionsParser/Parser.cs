@@ -13,14 +13,6 @@ namespace SimpleArithmeticExpressionsParser
         
         private readonly List<IFunctionHandler> _functionHandlers = HandlersFactory<IFunctionHandler>.GetHandlers();
 
-        private static readonly Dictionary<int, Predicate<char>> OperationPriorityDictionary = 
-            new Dictionary<int, Predicate<char>>
-            {
-                {0, c => c == '-' || c == '+'},
-                {1, c => c == '/' || c == '*' || c == '%'},
-                {2, c => c == '^'},
-            };
-
         public string Expression
         {
             get => _expression;
@@ -70,7 +62,7 @@ namespace SimpleArithmeticExpressionsParser
                 expression = expression.Remove(expression.Length - 1, 1).Remove(0, 1);
             }
 
-            var lowestPriorityOperation = FindLowestPriorityOperation(expression);
+            var lowestPriorityOperation = OperationPriorityHelper.FindLowestPriorityOperation(expression);
             if (lowestPriorityOperation == -1)
             {
                 expression = expression.Replace("(", "").Replace(")", "");
@@ -97,35 +89,7 @@ namespace SimpleArithmeticExpressionsParser
 
             return result;
         }
-
-        private int FindLowestPriorityOperation(string expression)
-        {
-            var result = -1;
-
-            for (var j = 0; j < OperationPriorityDictionary.Count; j++)
-            {
-                for (var i = 0; i < expression.Length; i++)
-                {
-                    if (expression[i] == '(')
-                    {
-                        i = BracketsHelper.SkipBrackets(i, expression);
-                    }
-                    if (i < expression.Length && i != 0 && (char.IsDigit(expression[i - 1]) || expression[i - 1] == ')')
-                        && OperationPriorityDictionary[j](expression[i]))
-                    {
-                        result = i;
-                    }
-                }
-
-                if (result != -1)
-                {
-                    return result;
-                }
-            }
-
-            return result;
-        }
-
+        
         private double TreeTraversal()
         {
             if (_root.OperationType == OperationType.Num)
