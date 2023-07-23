@@ -13,7 +13,7 @@ namespace SimpleArithmeticExpressionsParser
                 {2, c => c == '^'},
             };
         
-        public static int FindLowestPriorityOperation(string expression)
+        public static int FindLowestPriorityOperationIndex(string expression)
         {
             var result = -1;
 

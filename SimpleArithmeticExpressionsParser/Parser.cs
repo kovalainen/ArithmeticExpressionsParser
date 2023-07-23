@@ -64,8 +64,8 @@ namespace SimpleArithmeticExpressionsParser
                 expression = expression.Remove(expression.Length - 1, 1).Remove(0, 1);
             }
 
-            var lowestPriorityOperation = OperationPriorityHelper.FindLowestPriorityOperation(expression);
-            if (lowestPriorityOperation == -1)
+            var lowestPriorityOperationIndex = OperationPriorityHelper.FindLowestPriorityOperationIndex(expression);
+            if (lowestPriorityOperationIndex == -1)
             {
                 expression = expression.Replace("(", "").Replace(")", "");
                 return new Node
@@ -77,11 +77,11 @@ namespace SimpleArithmeticExpressionsParser
 
             var result = new Node();
             
-            result.OperationType = (OperationType)expression[lowestPriorityOperation];
+            result.OperationType = (OperationType)expression[lowestPriorityOperationIndex];
             
-            result.Right = BuildTree(expression.Substring(lowestPriorityOperation + 1,
-                expression.Length - lowestPriorityOperation - 1));
-            result.Left = BuildTree(expression.Substring(0, lowestPriorityOperation));
+            result.Right = BuildTree(expression.Substring(lowestPriorityOperationIndex + 1,
+                expression.Length - lowestPriorityOperationIndex - 1));
+            result.Left = BuildTree(expression.Substring(0, lowestPriorityOperationIndex));
 
             return result;
         }
