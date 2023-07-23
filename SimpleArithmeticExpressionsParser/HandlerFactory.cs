@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace SimpleArithmeticExpressionsParser
 {
-    public class HandlersFactory<THandler> where THandler : class
+    public class HandlerFactory<THandler> where THandler : class
     {
         private static readonly Lazy<List<THandler>> Handlers 
             = new Lazy<List<THandler>>(CreateHandlersFromTypeAssembly);
 
-        public static List<THandler> GetHandlers()
+        public List<THandler> GetHandlers()
         {
             return Handlers.Value;
         }

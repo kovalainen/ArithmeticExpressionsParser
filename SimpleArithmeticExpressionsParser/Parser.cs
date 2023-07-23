@@ -9,9 +9,11 @@ namespace SimpleArithmeticExpressionsParser
         private string _expression;
         private Node _root;
 
-        private readonly List<IOperationHandler> _operationHandlers = HandlersFactory<IOperationHandler>.GetHandlers();
+        private readonly HandlerFactory<IOperationHandler> _operationHandlerFactory 
+            = new HandlerFactory<IOperationHandler>();
         
-        private readonly List<IFunctionHandler> _functionHandlers = HandlersFactory<IFunctionHandler>.GetHandlers();
+        private readonly HandlerFactory<IFunctionHandler> _functionHandlerFactory 
+            = new HandlerFactory<IFunctionHandler>();
 
         public string Expression
         {
@@ -46,7 +48,7 @@ namespace SimpleArithmeticExpressionsParser
             }
 
             _expression = expression.Replace(" ", "").ToLower();
-            _expression = _functionHandlers
+            _expression = _functionHandlerFactory.GetHandlers()
                 .Aggregate(_expression, (current, functionHandler) => functionHandler.Handle(current));
             _root = BuildTree(_expression);
         }
@@ -100,7 +102,7 @@ namespace SimpleArithmeticExpressionsParser
 
                 if (node.Left.OperationType == OperationType.Num && node.Right.OperationType == OperationType.Num)
                 {
-                    node.Value += _operationHandlers.Select(x => x.Handle(node)).Sum();
+                    node.Value += _operationHandlerFactory.GetHandlers().Select(x => x.Handle(node)).Sum();
                     node.OperationType = OperationType.Num;
                     stack.Pop();
                 }
