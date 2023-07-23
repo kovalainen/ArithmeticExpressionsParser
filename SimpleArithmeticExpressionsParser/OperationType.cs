@@ -3,10 +3,10 @@
     public enum OperationType
     {
         Num,
-        Add,
-        Sub,
-        Mul,
-        Div,
-        Pow,
+        Add = '+',
+        Sub = '-',
+        Mul = '*',
+        Div = '/',
+        Pow = '^',
     }
 }

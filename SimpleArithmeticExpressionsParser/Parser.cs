@@ -66,7 +66,7 @@ namespace SimpleArithmeticExpressionsParser
             if (lowestPriorityOperation == -1)
             {
                 expression = expression.Replace("(", "").Replace(")", "");
-                return new Node()
+                return new Node
                 {
                     OperationType = OperationType.Num,
                     Value = Double.Parse(expression)
@@ -74,15 +74,9 @@ namespace SimpleArithmeticExpressionsParser
             }
 
             var result = new Node();
-            result.OperationType = expression[lowestPriorityOperation] switch
-            {
-                '+' => OperationType.Add,
-                '-' => OperationType.Sub,
-                '/' => OperationType.Div,
-                '*' => OperationType.Mul,
-                '^' => OperationType.Pow,
-                _ => result.OperationType
-            };
+            
+            result.OperationType = (OperationType)expression[lowestPriorityOperation];
+            
             result.Right = BuildTree(expression.Substring(lowestPriorityOperation + 1,
                 expression.Length - lowestPriorityOperation - 1));
             result.Left = BuildTree(expression.Substring(0, lowestPriorityOperation));
