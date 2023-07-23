@@ -53,8 +53,6 @@ namespace SimpleArithmeticExpressionsParser
             _root = BuildTree(_expression);
         }
 
-        
-
         private Node BuildTree(string expression)
         {
             while (expression[0] == '(' && expression[^1] == ')' 
